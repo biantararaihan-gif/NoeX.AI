@@ -11,292 +11,296 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400..800&family=Figtree:wght@400..900&display=swap" rel="stylesheet">
 
-  <!-- Custom Stylesheet -->
+  <!-- External Stylesheet & Script -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- JavaScript App Logic -->
   <script src="script.js" defer></script>
 </head>
 
 <body class="bg-slate-50 dark:bg-night-950 font-sans text-ink dark:text-slate-100 antialiased">
 
-  <!-- ===== TAMPILAN LOGIN ===== -->
-  <div id="view-auth" class="relative flex min-h-screen items-center justify-center overflow-x-hidden p-4 sm:p-6 lg:p-8">
+<!-- TAMPILAN LOGIN -->
+<div id="view-auth" class="relative flex min-h-screen items-center justify-center overflow-x-hidden p-4 sm:p-6 lg:p-8">
 
-    <!-- Latar belakang dekoratif -->
-    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
-      <div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-cobalt/20 blur-[120px]"></div>
-      <div class="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-sun/30 dark:bg-sun/10 blur-[120px]"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-cobalt/10 blur-[150px]"></div>
-      <div class="absolute inset-0 bg-grid-pattern opacity-60"></div>
-    </div>
+  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    <div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-cobalt/20 blur-[120px]"></div>
+    <div class="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-sun/30 dark:bg-sun/10 blur-[120px]"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-cobalt/10 blur-[150px]"></div>
+    <div class="absolute inset-0 bg-grid-pattern opacity-60"></div>
+  </div>
 
-    <div class="relative w-full max-w-5xl rounded-3xl border border-white/60 dark:border-night-700/60 bg-white/80 dark:bg-night-900/80 backdrop-blur-xl shadow-2xl shadow-cobalt/10 overflow-hidden grid lg:grid-cols-2 min-h-[640px]">
-      <button type="button" onclick="toggleTheme()" class="theme-toggle flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 text-ink dark:text-slate-100 shadow-sm transition hover:bg-slate-50 dark:hover:bg-night-700 active:scale-95 absolute right-4 top-4 z-20" aria-label="Beralih ke mode gelap" aria-pressed="false">
-        <span class="block dark:hidden"><svg class="text-xl h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
-        <span class="hidden dark:block"><svg class="text-xl text-sun h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span>
-      </button>
+  <div class="relative w-full max-w-5xl rounded-3xl border border-white/60 dark:border-night-700/60 bg-white/80 dark:bg-night-900/80 backdrop-blur-xl shadow-2xl shadow-cobalt/10 overflow-hidden grid lg:grid-cols-2 min-h-[640px]">
+    <button type="button" onclick="toggleTheme()" class="theme-toggle flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 text-ink dark:text-slate-100 shadow-sm transition hover:bg-slate-50 dark:hover:bg-night-700 active:scale-95 absolute right-4 top-4 z-20" aria-label="Beralih ke mode gelap" aria-pressed="false"><span class="block dark:hidden"><svg class="text-xl h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="hidden dark:block"><svg class="text-xl text-sun h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span></button>
 
-      <!-- Panel brand (kiri) -->
-      <aside class="relative hidden overflow-hidden bg-gradient-to-br from-cobalt via-cobalt-deep to-ink p-12 text-white lg:flex lg:flex-col lg:justify-between">
-        <div class="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-sun/20 blur-2xl" aria-hidden="true"></div>
-        <div class="absolute -bottom-28 -right-20 h-64 w-64 rounded-full bg-sun/90" aria-hidden="true"></div>
-        <div class="absolute bottom-44 right-8 h-20 w-20 rounded-2xl rotate-12 bg-white/10 backdrop-blur-md border border-white/20" aria-hidden="true"></div>
+    <!-- Panel Brand (Kiri) -->
+    <aside class="relative hidden overflow-hidden bg-gradient-to-br from-cobalt via-cobalt-deep to-ink p-12 text-white lg:flex lg:flex-col lg:justify-between">
+      <div class="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-sun/20 blur-2xl" aria-hidden="true"></div>
+      <div class="absolute -bottom-28 -right-20 h-64 w-64 rounded-full bg-sun/90" aria-hidden="true"></div>
+      <div class="absolute bottom-44 right-8 h-20 w-20 rounded-2xl rotate-12 bg-white/10 backdrop-blur-md border border-white/20" aria-hidden="true"></div>
 
-        <div class="relative z-10 flex items-center gap-3">
-          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-sun shadow-lg shadow-sun/30">
-            <svg class="h-7 w-7" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <div class="relative z-10 flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-sun shadow-lg shadow-sun/30">
+          <svg class="h-7 w-7" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M11 29V11l16 18V11" stroke="#161B3D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="8" r="3" fill="#2446E8"/>
+          </svg>
+        </div>
+        <span class="font-display text-2xl font-extrabold tracking-tight text-white">NoeX<span class="ml-0.5 text-sm font-semibold text-sun">.ai</span></span>
+      </div>
+
+      <div class="up relative z-10 max-w-md my-auto">
+        <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-medium text-sun backdrop-blur-md border border-white/15 mb-6">
+          <span class="flex h-2 w-2 rounded-full bg-sun"></span>
+          Platform AI Generasi Terbaru
+        </div>
+        <h1 class="font-display text-4xl font-bold leading-tight tracking-tight xl:text-5xl text-white">
+          Lanjutkan kerja dari tempat kamu berhenti.
+        </h1>
+        <p class="mt-4 text-base leading-relaxed text-white/80">
+          Percakapan, dokumen, dan proyek kreatifmu telah tersimpan rapi dan siap diakses kembali.
+        </p>
+      </div>
+
+      <div class="relative z-10 flex items-center gap-2 text-xs text-white/70">
+        <svg class="text-sun h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Keamanan data terenkripsi end-to-end</span>
+      </div>
+    </aside>
+
+    <!-- Panel Form (Kanan) -->
+    <main class="flex items-center justify-center p-6 sm:p-10 lg:p-12 w-full">
+      <div class="up up-d w-full max-w-sm mx-auto">
+
+        <div class="mb-8 flex items-center justify-center gap-3 lg:hidden">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-sun shadow-md shadow-sun/30">
+            <svg class="h-6 w-6" viewBox="0 0 40 40" fill="none" aria-hidden="true">
               <path d="M11 29V11l16 18V11" stroke="#161B3D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
               <circle cx="32" cy="8" r="3" fill="#2446E8"/>
             </svg>
           </div>
-          <span class="font-display text-2xl font-extrabold tracking-tight text-white">NoeX<span class="ml-0.5 text-sm font-semibold text-sun">.ai</span></span>
+          <span class="font-display text-2xl font-extrabold tracking-tight text-ink dark:text-slate-100">NoeX<span class="ml-0.5 text-sm font-semibold text-cobalt dark:text-cobalt-light">.ai</span></span>
         </div>
 
-        <div class="up relative z-10 max-w-md my-auto">
-          <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-medium text-sun backdrop-blur-md border border-white/15 mb-6">
-            <span class="flex h-2 w-2 rounded-full bg-sun"></span>
-            Platform AI Generasi Terbaru
-          </div>
-          <h1 class="font-display text-4xl font-bold leading-tight tracking-tight xl:text-5xl text-white">
-            Lanjutkan kerja dari tempat kamu berhenti.
-          </h1>
-          <p class="mt-4 text-base leading-relaxed text-white/80">
-            Percakapan, dokumen, dan proyek kreatifmu telah tersimpan rapi dan siap diakses kembali.
-          </p>
+        <div class="mb-6 flex rounded-2xl bg-slate-100 dark:bg-night-950 p-1.5 border border-slate-200/80 dark:border-night-700/80" role="tablist" aria-label="Masuk atau daftar">
+          <button type="button" id="tab-login" role="tab" aria-selected="true" aria-controls="form-login" onclick="switchTab('login')" class="w-1/2 rounded-xl py-2.5 text-sm font-bold text-ink dark:text-slate-100 bg-white dark:bg-night-800 shadow-sm transition-all duration-200">Masuk</button>
+          <button type="button" id="tab-register" role="tab" aria-selected="false" aria-controls="form-register" onclick="switchTab('register')" class="w-1/2 rounded-xl py-2.5 text-sm font-semibold text-ink/60 dark:text-slate-400 hover:text-ink dark:hover:text-white transition-all duration-200">Daftar Akun</button>
         </div>
 
-        <div class="relative z-10 flex items-center gap-2 text-xs text-white/70">
-          <svg class="text-sun h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span>Keamanan data terenkripsi end-to-end</span>
-        </div>
-      </aside>
-
-      <!-- Panel form (kanan) -->
-      <main class="flex items-center justify-center p-6 sm:p-10 lg:p-12 w-full">
-        <div class="up up-d w-full max-w-sm mx-auto">
-
-          <div class="mb-8 flex items-center justify-center gap-3 lg:hidden">
-            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-sun shadow-md shadow-sun/30">
-              <svg class="h-6 w-6" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                <path d="M11 29V11l16 18V11" stroke="#161B3D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="32" cy="8" r="3" fill="#2446E8"/>
-              </svg>
-            </div>
-            <span class="font-display text-2xl font-extrabold tracking-tight text-ink dark:text-slate-100">NoeX<span class="ml-0.5 text-sm font-semibold text-cobalt dark:text-cobalt-light">.ai</span></span>
+        <div id="auth-alert" role="status" aria-live="polite" class="mb-5 hidden items-start justify-between gap-3 rounded-2xl bg-cobalt/10 border border-cobalt/20 p-4 text-sm text-cobalt-deep dark:text-blue-200">
+          <div class="flex items-center gap-2.5">
+            <svg class="text-cobalt dark:text-cobalt-light shrink-0 h-[1em] w-[1em] inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span id="alert-msg" class="font-medium text-xs sm:text-sm"></span>
           </div>
-
-          <!-- Tab -->
-          <div class="mb-6 flex rounded-2xl bg-slate-100 dark:bg-night-950 p-1.5 border border-slate-200/80 dark:border-night-700/80" role="tablist" aria-label="Masuk atau daftar">
-            <button type="button" id="tab-login" role="tab" aria-selected="true" aria-controls="form-login" onclick="switchTab('login')" class="w-1/2 rounded-xl py-2.5 text-sm font-bold text-ink dark:text-slate-100 bg-white dark:bg-night-800 shadow-sm transition-all duration-200">Masuk</button>
-            <button type="button" id="tab-register" role="tab" aria-selected="false" aria-controls="form-register" onclick="switchTab('register')" class="w-1/2 rounded-xl py-2.5 text-sm font-semibold text-ink/60 dark:text-slate-400 hover:text-ink dark:hover:text-white transition-all duration-200">Daftar Akun</button>
-          </div>
-
-          <!-- Banner notifikasi -->
-          <div id="auth-alert" role="status" aria-live="polite" class="mb-5 hidden items-start justify-between gap-3 rounded-2xl bg-cobalt/10 border border-cobalt/20 p-4 text-sm text-cobalt-deep dark:text-blue-200">
-            <div class="flex items-center gap-2.5">
-              <svg class="text-cobalt dark:text-cobalt-light shrink-0 h-[1em] w-[1em] inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-              <span id="alert-msg" class="font-medium text-xs sm:text-sm"></span>
-            </div>
-            <button type="button" onclick="hideAlert()" class="text-cobalt/60 dark:text-blue-200/70 hover:text-cobalt dark:hover:text-cobalt-light transition" aria-label="Tutup notifikasi">
-              <svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-            </button>
-          </div>
-
-          <!-- OAuth -->
-          <div class="space-y-2.5">
-            <button type="button" onclick="loginWithOAuth('Google')" class="flex w-full items-center justify-center gap-3 rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-3 text-sm font-semibold text-ink dark:text-slate-100 transition hover:bg-slate-50 dark:hover:bg-night-700 hover:border-slate-300 dark:hover:border-slate-500 shadow-sm active:scale-[0.99]">
-              <svg class="h-4 w-4" viewBox="0 0 48 48" aria-hidden="true">
-                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-              </svg>
-              <span>Lanjutkan dengan Google</span>
-            </button>
-
-            <div class="grid grid-cols-2 gap-2.5">
-              <button type="button" onclick="loginWithOAuth('GitHub')" class="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-2.5 text-sm font-semibold text-ink dark:text-slate-100 transition hover:bg-slate-50 dark:hover:bg-night-700 hover:border-slate-300 dark:hover:border-slate-500 shadow-sm active:scale-[0.99]">
-                <svg class="text-lg h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span>
-              </button>
-              <button type="button" onclick="loginWithOAuth('Apple')" class="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-2.5 text-sm font-semibold text-ink dark:text-slate-100 transition hover:bg-slate-50 dark:hover:bg-night-700 hover:border-slate-300 dark:hover:border-slate-500 shadow-sm active:scale-[0.99]">
-                <svg class="text-lg h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>Apple</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="my-5 flex items-center gap-3 text-xs text-slate-400">
-            <div class="h-px flex-1 bg-slate-200 dark:bg-night-700"></div>
-            <span>atau dengan email</span>
-            <div class="h-px flex-1 bg-slate-200 dark:bg-night-700"></div>
-          </div>
-
-          <!-- Form masuk -->
-          <form id="form-login" role="tabpanel" aria-labelledby="tab-login" onsubmit="handleLogin(event)" class="space-y-4">
-            <div>
-              <label for="login-email" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Alamat Email</label>
-              <div class="relative">
-                <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
-                <input type="email" id="login-email" required autocomplete="email" placeholder="nama@domain.com" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-4 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
-              </div>
-            </div>
-
-            <div>
-              <div class="mb-1.5 flex items-center justify-between">
-                <label for="login-password" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Kata Sandi</label>
-                <a href="#" onclick="handleForgotPassword(event)" class="text-xs font-bold text-cobalt dark:text-cobalt-light transition hover:text-cobalt-deep dark:hover:text-white">Lupa kata sandi?</a>
-              </div>
-              <div class="relative">
-                <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <input type="password" id="login-password" required autocomplete="current-password" placeholder="••••••••" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-11 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
-                <button type="button" onclick="togglePassword('login-password')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-ink dark:hover:text-white" aria-label="Tampilkan kata sandi">
-                  <svg class="text-sm h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                </button>
-              </div>
-            </div>
-
-            <button type="submit" id="btn-login" class="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-cobalt py-3.5 text-sm font-bold text-white shadow-lg shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-[0.99]">
-              <span>Masuk ke Akun</span>
-            </button>
-          </form>
-
-          <!-- Form daftar -->
-          <form id="form-register" role="tabpanel" aria-labelledby="tab-register" onsubmit="handleRegister(event)" class="hidden space-y-4">
-            <div>
-              <label for="reg-name" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Nama Lengkap</label>
-              <div class="relative">
-                <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                <input type="text" id="reg-name" required autocomplete="name" placeholder="Nama Lengkap" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-4 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
-              </div>
-            </div>
-
-            <div>
-              <label for="reg-email" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Alamat Email</label>
-              <div class="relative">
-                <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
-                <input type="email" id="reg-email" required autocomplete="email" placeholder="nama@domain.com" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-4 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
-              </div>
-            </div>
-
-            <div>
-              <label for="reg-password" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Buat Kata Sandi</label>
-              <div class="relative">
-                <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <input type="password" id="reg-password" required minlength="8" autocomplete="new-password" placeholder="Minimal 8 karakter" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-11 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
-                <button type="button" onclick="togglePassword('reg-password')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-ink dark:hover:text-white" aria-label="Tampilkan kata sandi">
-                  <svg class="text-sm h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                </button>
-              </div>
-            </div>
-
-            <button type="submit" id="btn-register" class="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-cobalt py-3.5 text-sm font-bold text-white shadow-lg shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-[0.99]">
-              <span>Buat Akun Baru</span>
-            </button>
-          </form>
-
-          <p class="mt-6 text-center text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-            Dengan melanjutkan, kamu menyetujui <a href="#" class="font-medium text-ink dark:text-slate-100 underline underline-offset-2 transition hover:text-cobalt dark:hover:text-cobalt-light">Ketentuan Layanan</a> dan <a href="#" class="font-medium text-ink dark:text-slate-100 underline underline-offset-2 transition hover:text-cobalt dark:hover:text-cobalt-light">Kebijakan Privasi</a>.
-          </p>
-
-        </div>
-      </main>
-    </div>
-  </div>
-
-  <!-- ===== TAMPILAN DASHBOARD ===== -->
-  <div id="view-app" class="hidden h-[100dvh] overflow-hidden">
-    <div class="flex h-full">
-
-      <div id="scrim" class="fixed inset-0 z-30 hidden bg-ink/50 backdrop-blur-sm lg:hidden" onclick="toggleSidebar(false)"></div>
-
-      <!-- Sidebar -->
-      <aside id="sidebar" aria-label="Riwayat percakapan" class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col bg-gradient-to-b from-cobalt-deep to-ink text-white dark:from-night-900 dark:to-night-950 dark:border-r dark:border-night-700 transition-[transform,margin] duration-300 lg:static lg:translate-x-0">
-        <div class="flex items-center justify-between p-4 pb-2">
-          <div class="flex items-center gap-3">
-            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-sun shadow-lg shadow-sun/30">
-              <svg class="h-6 w-6" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                <path d="M11 29V11l16 18V11" stroke="#161B3D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="32" cy="8" r="3" fill="#2446E8"/>
-              </svg>
-            </div>
-            <span class="font-display text-xl font-extrabold tracking-tight">NoeX<span class="ml-0.5 text-sm font-semibold text-sun">.ai</span></span>
-          </div>
-          <button type="button" id="sb-close" onclick="toggleSidebar(false)" class="rounded-lg p-2 text-lg text-white/70 transition hover:bg-white/10 hover:text-white" aria-label="Tutup sidebar" title="Tutup sidebar" aria-controls="sidebar" aria-expanded="true"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg></button>
-        </div>
-
-        <div class="space-y-3 p-4 pt-3">
-          <button type="button" onclick="newChat()" class="flex w-full items-center justify-center gap-2 rounded-xl bg-sun py-3 text-sm font-bold text-ink shadow-lg shadow-sun/20 transition hover:bg-sun-bright active:scale-[0.99]">
-            <svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Percakapan baru</span>
+          <button type="button" onclick="hideAlert()" class="text-cobalt/60 dark:text-blue-200/70 hover:text-cobalt dark:hover:text-cobalt-light transition" aria-label="Tutup notifikasi">
+            <svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
           </button>
-          <div class="relative">
-            <svg class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-xs text-white/50 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input id="search" type="search" oninput="renderHistory()" placeholder="Cari percakapan" aria-label="Cari percakapan" class="w-full rounded-xl border border-white/15 bg-white/10 py-2.5 pl-9 pr-3 text-sm text-white outline-none transition placeholder:text-white/50 focus:border-sun focus:bg-white/15">
+        </div>
+
+        <div class="space-y-2.5">
+          <button type="button" onclick="loginWithOAuth('Google')" class="flex w-full items-center justify-center gap-3 rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-3 text-sm font-semibold text-ink dark:text-slate-100 transition hover:bg-slate-50 dark:hover:bg-night-700 hover:border-slate-300 dark:hover:border-slate-500 shadow-sm active:scale-[0.99]">
+            <svg class="h-4 w-4" viewBox="0 0 48 48" aria-hidden="true">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            </svg>
+            <span>Lanjutkan dengan Google</span>
+          </button>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <button type="button" onclick="loginWithOAuth('GitHub')" class="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-2.5 text-sm font-semibold text-ink dark:text-slate-100 transition hover:bg-slate-50 dark:hover:bg-night-700 hover:border-slate-300 dark:hover:border-slate-500 shadow-sm active:scale-[0.99]">
+              <svg class="text-lg h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span>
+            </button>
+            <button type="button" onclick="loginWithOAuth('Apple')" class="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-2.5 text-sm font-semibold text-ink dark:text-slate-100 transition hover:bg-slate-50 dark:hover:bg-night-700 hover:border-slate-300 dark:hover:border-slate-500 shadow-sm active:scale-[0.99]">
+              <svg class="text-lg h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>Apple</span>
+            </button>
           </div>
         </div>
 
-        <nav id="history" class="flex-1 overflow-y-auto px-3 pb-3"></nav>
-
-        <div id="upgrade-card" class="mx-3 mb-3 rounded-2xl border border-white/15 bg-white/10 p-4">
-          <p class="text-sm font-bold">Upgrade ke Pro</p>
-          <p class="mt-1 text-xs text-white/70">Pesan tanpa batas, model NoeX Nalar, dan respons prioritas.</p>
-          <button type="button" onclick="openPay()" class="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-sun py-2.5 text-sm font-bold text-ink transition hover:bg-sun-bright active:scale-[0.99]"><svg class="text-base h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/></svg><span>Lihat paket Pro</span></button>
+        <div class="my-5 flex items-center gap-3 text-xs text-slate-400">
+          <div class="h-px flex-1 bg-slate-200 dark:bg-night-700"></div>
+          <span>atau dengan email</span>
+          <div class="h-px flex-1 bg-slate-200 dark:bg-night-700"></div>
         </div>
 
-        <!-- Profil -->
-        <div class="flex items-center gap-3 border-t border-white/10 p-4">
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sun text-sm font-extrabold text-ink" id="user-avatar">DP</div>
-          <div class="min-w-0 flex-1">
-            <p id="user-name" class="truncate text-sm font-semibold">Dimas Pratama</p>
-            <p id="user-plan" class="text-xs text-white/60">Paket Gratis</p>
+        <form id="form-login" role="tabpanel" aria-labelledby="tab-login" onsubmit="handleLogin(event)" class="space-y-4">
+          <div>
+            <label for="login-email" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Alamat Email</label>
+            <div class="relative">
+              <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+              <input type="email" id="login-email" required autocomplete="email" placeholder="nama@domain.com" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-4 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
+            </div>
           </div>
-          <button type="button" onclick="logout()" class="rounded-lg p-2 text-white/60 transition hover:text-white" aria-label="Keluar"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></button>
-        </div>
-      </aside>
 
-      <!-- Area chat -->
-      <main class="relative flex min-w-0 flex-1 flex-col">
-        <div class="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-sun/25 dark:bg-sun/10 blur-[100px]" aria-hidden="true"></div>
-
-        <header class="relative z-10 flex items-center gap-3 border-b border-slate-200/70 dark:border-night-700/70 bg-white/70 dark:bg-night-800/70 px-4 py-3 backdrop-blur-xl sm:px-6">
-          <button type="button" id="sb-open" onclick="toggleSidebar(true)" class="rounded-lg p-2 text-lg text-ink/70 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-night-800 hover:text-ink dark:hover:text-white" aria-label="Buka sidebar" title="Buka sidebar" aria-controls="sidebar" aria-expanded="false"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg></button>
-          <h1 id="chat-title" class="min-w-0 flex-1 truncate font-display text-lg font-bold">Percakapan baru</h1>
-          <button type="button" onclick="toggleTheme()" class="theme-toggle flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 text-ink dark:text-slate-100 shadow-sm transition hover:bg-slate-50 dark:hover:bg-night-700 active:scale-95" aria-label="Beralih ke mode gelap" aria-pressed="false"><span class="block dark:hidden"><svg class="text-xl h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="hidden dark:block"><svg class="text-xl text-sun h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span></button>
-          <label for="model" class="sr-only">Model</label>
-          <select id="model" class="rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-2 pl-3 pr-8 text-sm font-semibold text-ink dark:text-slate-100 shadow-sm">
-            <option>NoeX Cepat</option>
-            <option selected>NoeX Pro</option>
-            <option>NoeX Nalar</option>
-          </select>
-        </header>
-
-        <div id="messages" role="log" aria-live="polite" class="relative flex-1 overflow-y-auto"></div>
-
-        <div class="relative px-4 pb-4 sm:px-6">
-          <div class="mx-auto w-full max-w-3xl">
-            <div class="flex items-end gap-2 rounded-2xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 p-2 shadow-lg shadow-cobalt/5 transition focus-within:border-cobalt focus-within:ring-4 focus-within:ring-cobalt/15">
-              <textarea id="input" rows="1" placeholder="Tulis pesan untuk NoeX…" aria-label="Pesan" class="max-h-40 min-h-[44px] flex-1 resize-none bg-transparent px-3 py-2.5 text-sm outline-none placeholder:text-slate-400"></textarea>
-              <button type="button" id="send" onclick="send()" aria-label="Kirim pesan" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cobalt text-white shadow-md shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-95 disabled:cursor-not-allowed disabled:opacity-40">
-                <svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          <div>
+            <div class="mb-1.5 flex items-center justify-between">
+              <label for="login-password" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Kata Sandi</label>
+              <a href="#" onclick="handleForgotPassword(event)" class="text-xs font-bold text-cobalt dark:text-cobalt-light transition hover:text-cobalt-deep dark:hover:text-white">Lupa kata sandi?</a>
+            </div>
+            <div class="relative">
+              <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="login-password" required autocomplete="current-password" placeholder="••••••••" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-11 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
+              <button type="button" onclick="togglePassword('login-password')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-ink dark:hover:text-white" aria-label="Tampilkan kata sandi">
+                <svg class="text-sm h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div>
-            <p class="mt-2 text-center text-xs text-slate-500 dark:text-slate-400">NoeX.ai bisa keliru. Periksa kembali info penting.</p>
           </div>
-        </div>
-      </main>
-    </div>
+
+          <button type="submit" id="btn-login" class="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-cobalt py-3.5 text-sm font-bold text-white shadow-lg shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-[0.99]">
+            <span>Masuk ke Akun</span>
+          </button>
+        </form>
+
+        <form id="form-register" role="tabpanel" aria-labelledby="tab-register" onsubmit="handleRegister(event)" class="hidden space-y-4">
+          <div>
+            <label for="reg-name" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Nama Lengkap</label>
+            <div class="relative">
+              <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="reg-name" required autocomplete="name" placeholder="Nama Lengkap" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-4 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
+            </div>
+          </div>
+
+          <div>
+            <label for="reg-email" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Alamat Email</label>
+            <div class="relative">
+              <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+              <input type="email" id="reg-email" required autocomplete="email" placeholder="nama@domain.com" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-4 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
+            </div>
+          </div>
+
+          <div>
+            <label for="reg-password" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Buat Kata Sandi</label>
+            <div class="relative">
+              <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="reg-password" required minlength="8" autocomplete="new-password" placeholder="Minimal 8 karakter" class="w-full rounded-xl border border-slate-200 dark:border-night-700 bg-white/70 dark:bg-night-800/70 py-3 pl-11 pr-11 text-sm text-ink dark:text-slate-100 outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:bg-white dark:focus:bg-night-900 focus:ring-4 focus:ring-cobalt/15">
+              <button type="button" onclick="togglePassword('reg-password')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-ink dark:hover:text-white" aria-label="Tampilkan kata sandi">
+                <svg class="text-sm h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" id="btn-register" class="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-cobalt py-3.5 text-sm font-bold text-white shadow-lg shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-[0.99]">
+            <span>Buat Akun Baru</span>
+          </button>
+        </form>
+
+        <p class="mt-6 text-center text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          Dengan melanjutkan, kamu menyetujui <a href="#" class="font-medium text-ink dark:text-slate-100 underline underline-offset-2 transition hover:text-cobalt dark:hover:text-cobalt-light">Ketentuan Layanan</a> dan <a href="#" class="font-medium text-ink dark:text-slate-100 underline underline-offset-2 transition hover:text-cobalt dark:hover:text-cobalt-light">Kebijakan Privasi</a>.
+        </p>
+
+      </div>
+    </main>
   </div>
 
-  <!-- Modal Pembayaran -->
-  <dialog id="pay-modal" aria-labelledby="pay-title" class="m-auto w-[calc(100%-2rem)] max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white p-0 text-ink shadow-2xl backdrop:bg-ink/60 backdrop:backdrop-blur-sm dark:border-night-700 dark:bg-night-900 dark:text-slate-100">
-    <div class="flex items-center justify-between gap-2 border-b border-slate-200 px-5 py-4 dark:border-night-700">
-      <div class="flex min-w-0 items-center gap-2">
-        <button type="button" id="pay-back" onclick="payBack()" class="hidden rounded-lg p-2 text-lg text-slate-500 transition hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-night-800" aria-label="Kembali"><svg class=" h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
-        <h2 id="pay-title" class="truncate font-display text-lg font-bold">Langganan NoeX Pro</h2>
-      </div>
-      <button type="button" onclick="closePay()" class="rounded-lg p-2 text-lg text-slate-500 transition hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-night-800" aria-label="Tutup"><svg class=" h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-    </div>
-    <div id="pay-body" class="max-h-[75dvh] overflow-y-auto px-6 py-5"></div>
-  </dialog>
+</div>
 
-</body>
-</html>
+<!-- TAMPILAN DASHBOARD -->
+<div id="view-app" class="hidden h-[100dvh] overflow-hidden">
+  <div class="flex h-full">
+
+    <div id="scrim" class="fixed inset-0 z-30 hidden bg-ink/50 backdrop-blur-sm lg:hidden" onclick="toggleSidebar(false)"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" aria-label="Riwayat percakapan" class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col bg-gradient-to-b from-cobalt-deep to-ink text-white dark:from-night-900 dark:to-night-950 dark:border-r dark:border-night-700 transition-[transform,margin] duration-300 lg:static lg:translate-x-0">
+      <div class="flex items-center justify-between p-4 pb-2">
+        <div class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-sun shadow-lg shadow-sun/30">
+            <svg class="h-6 w-6" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <path d="M11 29V11l16 18V11" stroke="#161B3D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="32" cy="8" r="3" fill="#2446E8"/>
+            </svg>
+          </div>
+          <span class="font-display text-xl font-extrabold tracking-tight">NoeX<span class="ml-0.5 text-sm font-semibold text-sun">.ai</span></span>
+        </div>
+        <button type="button" id="sb-close" onclick="toggleSidebar(false)" class="rounded-lg p-2 text-lg text-white/70 transition hover:bg-white/10 hover:text-white" aria-label="Tutup sidebar" title="Tutup sidebar" aria-controls="sidebar" aria-expanded="true"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg></button>
+      </div>
+
+      <div class="space-y-3 p-4 pt-3">
+        <button type="button" onclick="newChat()" class="flex w-full items-center justify-center gap-2 rounded-xl bg-sun py-3 text-sm font-bold text-ink shadow-lg shadow-sun/20 transition hover:bg-sun-bright active:scale-[0.99]">
+          <svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Percakapan baru</span>
+        </button>
+        <div class="relative">
+          <svg class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-xs text-white/50 h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input id="search" type="search" oninput="renderHistory()" placeholder="Cari percakapan" aria-label="Cari percakapan" class="w-full rounded-xl border border-white/15 bg-white/10 py-2.5 pl-9 pr-3 text-sm text-white outline-none transition placeholder:text-white/50 focus:border-sun focus:bg-white/15">
+        </div>
+      </div>
+
+      <nav id="history" class="flex-1 overflow-y-auto px-3 pb-3"></nav>
+
+      <div id="upgrade-card" class="mx-3 mb-3 rounded-2xl border border-white/15 bg-white/10 p-4">
+        <p class="text-sm font-bold">Upgrade ke Pro</p>
+        <p class="mt-1 text-xs text-white/70">Pesan tanpa batas, model NoeX Nalar, dan respons prioritas.</p>
+        <button type="button" onclick="openPay()" class="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-sun py-2.5 text-sm font-bold text-ink transition hover:bg-sun-bright active:scale-[0.99]"><svg class="text-base h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/></svg><span>Lihat paket Pro</span></button>
+      </div>
+
+      <div class="flex items-center gap-3 border-t border-white/10 p-4">
+        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sun text-sm font-extrabold text-ink" id="user-avatar">DP</div>
+        <div class="min-w-0 flex-1">
+          <p id="user-name" class="truncate text-sm font-semibold">Dimas Pratama</p>
+          <p id="user-plan" class="text-xs text-white/60">Paket Gratis</p>
+        </div>
+        <button type="button" onclick="logout()" class="rounded-lg p-2 text-white/60 transition hover:text-white" aria-label="Keluar"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></button>
+      </div>
+    </aside>
+
+    <!-- Area Chat -->
+    <main class="relative flex min-w-0 flex-1 flex-col">
+      <div class="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-sun/25 dark:bg-sun/10 blur-[100px]" aria-hidden="true"></div>
+
+      <header class="relative z-10 flex items-center gap-3 border-b border-slate-200/70 dark:border-night-700/70 bg-white/70 dark:bg-night-800/70 px-4 py-3 backdrop-blur-xl sm:px-6">
+        <button type="button" id="sb-open" onclick="toggleSidebar(true)" class="rounded-lg p-2 text-lg text-ink/70 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-night-800 hover:text-ink dark:hover:text-white" aria-label="Buka sidebar" title="Buka sidebar" aria-controls="sidebar" aria-expanded="false"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg></button>
+        <h1 id="chat-title" class="min-w-0 flex-1 truncate font-display text-lg font-bold">Percakapan baru</h1>
+        <button type="button" onclick="toggleTheme()" class="theme-toggle flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 text-ink dark:text-slate-100 shadow-sm transition hover:bg-slate-50 dark:hover:bg-night-700 active:scale-95" aria-label="Beralih ke mode gelap" aria-pressed="false"><span class="block dark:hidden"><svg class="text-xl h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="hidden dark:block"><svg class="text-xl text-sun h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span></button>
+        <label for="model" class="sr-only">Model</label>
+        <select id="model" class="rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-2 pl-3 pr-8 text-sm font-semibold text-ink dark:text-slate-100 shadow-sm">
+          <option>NoeX Cepat</option>
+          <option selected>NoeX Pro</option>
+          <option>NoeX Nalar</option>
+        </select>
+      </header>
+
+      <div id="messages" role="log" aria-live="polite" class="relative flex-1 overflow-y-auto"></div>
+
+      <!-- Input Pesan & Lampiran -->
+      <div class="relative px-4 pb-4 sm:px-6">
+        <div class="mx-auto w-full max-w-3xl">
+          
+          <div id="attachment-preview" class="mb-2 hidden flex-wrap gap-2 rounded-xl border border-slate-200 dark:border-night-700 bg-white/50 dark:bg-night-800/50 p-2"></div>
+
+          <div class="flex items-end gap-2 rounded-2xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 p-2 shadow-lg shadow-cobalt/5 transition focus-within:border-cobalt focus-within:ring-4 focus-within:ring-cobalt/15">
+            
+            <input type="file" id="file-input" multiple accept="image/*,.pdf,.doc,.docx,.txt" onchange="handleFileSelect(event)" class="hidden">
+            
+            <button type="button" onclick="$('file-input').click()" aria-label="Unggah foto atau dokumen" title="Unggah berkas" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-400 transition hover:bg-slate-100 dark:hover:bg-night-700 hover:text-ink dark:hover:text-white">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+              </svg>
+            </button>
+
+            <textarea id="input" rows="1" placeholder="Tulis pesan atau unggah berkas…" aria-label="Pesan" class="max-h-40 min-h-[44px] flex-1 resize-none bg-transparent px-2 py-2.5 text-sm outline-none placeholder:text-slate-400"></textarea>
+            
+            <button type="button" id="send" onclick="handleSendClick()" aria-label="Kirim pesan" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cobalt text-white shadow-md shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-40">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 19V5M5 12l7-7 7 7"/>
+              </svg>
+            </button>
+
+          </div>
+          <p class="mt-2 text-center text-xs text-slate-500 dark:text-slate-400">NoeX.ai bisa keliru. Periksa kembali info penting.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</div>
+
+<!-- MODAL PEMBAYARAN -->
+<dialog id="pay-modal" aria-labelledby="pay-title" class="m-auto w-[calc(100%-2rem)] max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white p-0 text-ink shadow-2xl backdrop:bg-ink/60 backdrop:backdrop-blur-sm dark:border-night-700 dark:bg-night-900 dark:text-slate-100">
+  <div class="flex items-center justify-between gap-2 border-b border-slate-200 px-5 py-4 dark:border-night-700">
+    <div class="flex min-w-0 items-center gap-2">
+      <button type="button" id="pay-back" onclick="payBack()" class="hidden rounded-lg p-2 text-lg text-slate-500 transition hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-night-800" aria-label="Kembali"><svg class=" h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+      <h2 id="pay-title" class="truncate font-display text-lg font-bold">Langganan NoeX Pro</h2>
+    </div>
+    <button type="button" onclick="closePay()" class="rounded-lg p-2 text-lg text-slate-500 transition hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-night-800" aria-label="Tutup"><svg class=" h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div id="pay-body" class="max-h-[75dvh] overflow-y-auto px-6 py-5"></div>
+</dialog>
