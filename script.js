@@ -1,4 +1,3 @@
-// ===== Konfigurasi Tailwind CSS (Custom Color & Font) =====
 if (window.tailwind) {
   tailwind.config = {
     darkMode: 'class',
@@ -21,7 +20,6 @@ if (window.tailwind) {
   };
 }
 
-// ===== Inisialisasi Tema (Pencegahan Flash Theme) =====
 (function () {
   try {
     var t = localStorage.getItem('noex_theme');
@@ -30,16 +28,13 @@ if (window.tailwind) {
   } catch (e) {}
 })();
 
-// ===== Ikon SVG Inline =====
 const ICON = {
-  "eye": ["s", "<path d=\"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>"],
-  "eyeOff": ["s", "<path d=\"M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22\"/>"],
-  "mail": ["s", "<path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"/><path d=\"m22 6-10 7L2 6\"/>"],
-  "lightbulb": ["s", "<path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\"/><path d=\"M9 18h6M10 22h4\"/>"],
-  "calendarCheck": ["s", "<path d=\"M8 2v4M16 2v4\"/><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 10h18M9 16l2 2 4-4\"/>"],
-  "listCheck": ["s", "<path d=\"m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8\"/>"],
-  "check": ['s', '<path d="M20 6 9 17l-5-5"/>'],
-  "chev": ['s', '<path d="m9 18 6-6-6-6"/>']
+  "eye":["s","<path d=\"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>"],
+  "eyeOff":["s","<path d=\"M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22\"/>"],
+  "mail":["s","<path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"/><path d=\"m22 6-10 7L2 6\"/>"],
+  "lightbulb":["s","<path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\"/><path d=\"M9 18h6M10 22h4\"/>"],
+  "calendarCheck":["s","<path d=\"M8 2v4M16 2v4\"/><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 10h18M9 16l2 2 4-4\"/>"],
+  "listCheck":["s","<path d=\"m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8\"/>"]
 };
 
 const ic = (name, cls = '') => {
@@ -103,7 +98,7 @@ function handleForgotPassword(e) {
 const $ = id => document.getElementById(id);
 const USER = { first: 'Dimas' };
 const MARK = '<svg class="h-5 w-5" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M11 29V11l16 18V11" stroke="#161B3D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="8" r="3" fill="#2446E8"/></svg>';
-const COPY = '<svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Salin';
+const COPY = '<svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> <span>Salin</span>';
 const GROUPS = ['Hari ini', 'Kemarin', '7 hari terakhir'];
 
 const SUGGEST = [
@@ -114,35 +109,27 @@ const SUGGEST = [
 ];
 
 const chats = [
-  {
-    id: 1, title: 'Ide nama brand kopi lokal', group: 'Hari ini', msgs: [
-      { r: 'u', t: 'Bantu aku cari nama brand untuk kedai kopi yang memakai biji lokal.' },
-      { r: 'a', t: 'Beberapa arah nama yang bisa kamu pertimbangkan:\n\n**Lereng Kopi**: mengingatkan pada kebun di lereng gunung\n**Biji Tanah**: hangat dan membumi\n**Seduh Pelan**: santai dan mudah diingat\n\nMau saya kembangkan salah satunya, lengkap dengan tagline dan gaya visual?' }
-    ]
-  },
-  {
-    id: 2, title: 'Ringkasan rapat mingguan', group: 'Hari ini', msgs: [
-      { r: 'u', t: 'Rangkum catatan rapat ini jadi 3 poin tindak lanjut.' },
-      { r: 'a', t: 'Tempel catatan rapatnya di sini. Saya ubah jadi tiga poin tindak lanjut, lengkap dengan penanggung jawab dan tenggat.' }
-    ]
-  },
-  {
-    id: 3, title: 'Debug fungsi login JavaScript', group: 'Kemarin', msgs: [
-      { r: 'u', t: 'Kenapa tombol "Lupa kata sandi" tidak jalan?' },
-      { r: 'a', t: 'Cek argumen yang dikirim ke fungsinya. Kalau ada typo pada `event`, browser melempar `ReferenceError` dan handler berhenti sebelum notifikasi muncul.' }
-    ]
-  },
-  {
-    id: 4, title: 'Rencana konten Instagram', group: '7 hari terakhir', msgs: [
-      { r: 'u', t: 'Buatkan kerangka konten Instagram untuk satu minggu.' },
-      { r: 'a', t: 'Kerangka sederhana:\n\n**Senin**: tips singkat\n**Rabu**: di balik layar\n**Jumat**: cerita pelanggan\n\nSaya bisa lengkapi dengan ide caption untuk tiap hari.' }
-    ]
-  },
+  { id: 1, title: 'Ide nama brand kopi lokal', group: 'Hari ini', msgs: [
+    { r: 'u', t: 'Bantu aku cari nama brand untuk kedai kopi yang memakai biji lokal.' },
+    { r: 'a', t: 'Beberapa arah nama yang bisa kamu pertimbangkan:\n\n**Lereng Kopi**: mengingatkan pada kebun di lereng gunung\n**Biji Tanah**: hangat dan membumi\n**Seduh Pelan**: santai dan mudah diingat\n\nMau saya kembangkan salah satunya, lengkap dengan tagline dan gaya visual?' } ] },
+  { id: 2, title: 'Ringkasan rapat mingguan', group: 'Hari ini', msgs: [
+    { r: 'u', t: 'Rangkum catatan rapat ini jadi 3 poin tindak lanjut.' },
+    { r: 'a', t: 'Tempel catatan rapatnya di sini. Saya ubah jadi tiga poin tindak lanjut, lengkap dengan penanggung jawab dan tenggat.' } ] },
+  { id: 3, title: 'Debug fungsi login JavaScript', group: 'Kemarin', msgs: [
+    { r: 'u', t: 'Kenapa tombol "Lupa kata sandi" tidak jalan?' },
+    { r: 'a', t: 'Cek argumen yang dikirim ke fungsinya. Kalau ada typo pada `event`, browser melempar `ReferenceError` dan handler berhenti sebelum notifikasi muncul.' } ] },
+  { id: 4, title: 'Rencana konten Instagram', group: '7 hari terakhir', msgs: [
+    { r: 'u', t: 'Buatkan kerangka konten Instagram untuk satu minggu.' },
+    { r: 'a', t: 'Kerangka sederhana:\n\n**Senin**: tips singkat\n**Rabu**: di balik layar\n**Jumat**: cerita pelanggan\n\nSaya bisa lengkapi dengan ide caption untuk tiap hari.' } ] },
 ];
 
 let current = null;
 let busy = false;
-let input;
+let attachments = [];
+let replyTimer = null;
+
+const ICON_STOP = `<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>`;
+const ICON_SEND = `<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>`;
 
 const esc = s => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fmt = t => esc(t).split(/\n{2,}/).map(p => '<p class="mb-3 last:mb-0">' + p
@@ -156,13 +143,13 @@ function renderHistory() {
   $('history').innerHTML = !list.length
     ? '<p class="px-3 py-6 text-center text-sm text-white/60">Tidak ada percakapan yang cocok.</p>'
     : GROUPS.map(g => {
-      const items = list.filter(c => c.group === g);
-      if (!items.length) return '';
-      return `<p class="px-3 pb-1.5 pt-4 text-xs font-semibold text-white/50">${g}</p>` + items.map(c => {
-        const on = c === current;
-        return `<button type="button" onclick="openChat(${c.id})" ${on ? 'aria-current="true"' : ''} class="relative flex w-full items-center rounded-xl px-3 py-2.5 text-left text-sm transition ${on ? 'bg-white/15 font-semibold text-white' : 'text-white/75 hover:bg-white/10 hover:text-white'}">${on ? '<span class="absolute inset-y-2 left-0 w-1 rounded-full bg-sun"></span>' : ''}<span class="truncate">${esc(c.title)}</span></button>`;
+        const items = list.filter(c => c.group === g);
+        if (!items.length) return '';
+        return `<p class="px-3 pb-1.5 pt-4 text-xs font-semibold text-white/50">${g}</p>` + items.map(c => {
+          const on = c === current;
+          return `<button type="button" onclick="openChat(${c.id})" ${on ? 'aria-current="true"' : ''} class="relative flex w-full items-center rounded-xl px-3 py-2.5 text-left text-sm transition ${on ? 'bg-white/15 font-semibold text-white' : 'text-white/75 hover:bg-white/10 hover:text-white'}">${on ? '<span class="absolute inset-y-2 left-0 w-1 rounded-full bg-sun"></span>' : ''}<span class="truncate">${esc(c.title)}</span></button>`;
+        }).join('');
       }).join('');
-    }).join('');
 }
 
 function welcome() {
@@ -180,11 +167,158 @@ function welcome() {
   </div>`;
 }
 
+function handleFileSelect(e) {
+  const files = Array.from(e.target.files);
+  files.forEach(file => {
+    const isImage = file.type.startsWith('image/');
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      attachments.push({
+        name: file.name,
+        type: file.type,
+        size: (file.size / 1024).toFixed(1) + ' KB',
+        url: evt.target.result,
+        isImage: isImage
+      });
+      renderAttachments();
+      syncSend();
+    };
+    reader.readAsDataURL(file);
+  });
+  e.target.value = '';
+}
+
+function removeAttachment(index) {
+  attachments.splice(index, 1);
+  renderAttachments();
+  syncSend();
+}
+
+function renderAttachments() {
+  const box = $('attachment-preview');
+  if (!attachments.length) {
+    box.classList.add('hidden');
+    box.classList.remove('flex');
+    box.innerHTML = '';
+    return;
+  }
+  box.classList.remove('hidden');
+  box.classList.add('flex');
+  box.innerHTML = attachments.map((f, i) => `
+    <div class="relative flex items-center gap-2 rounded-lg bg-slate-100 dark:bg-night-700 px-3 py-1.5 text-xs font-medium text-ink dark:text-slate-200">
+      ${f.isImage 
+        ? `<img src="${f.url}" class="h-6 w-6 rounded object-cover" alt="Preview">` 
+        : `<svg class="h-4 w-4 text-cobalt dark:text-cobalt-light shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`
+      }
+      <span class="max-w-[120px] truncate">${esc(f.name)}</span>
+      <button type="button" onclick="removeAttachment(${i})" class="ml-1 rounded p-0.5 text-slate-400 hover:text-red-500 transition" aria-label="Hapus lampiran">&times;</button>
+    </div>
+  `).join('');
+}
+
+function handleSendClick() {
+  if (busy) {
+    stopResponse();
+  } else {
+    send();
+  }
+}
+
+function stopResponse() {
+  if (replyTimer) {
+    clearTimeout(replyTimer);
+    replyTimer = null;
+  }
+  busy = false;
+  if (current && current.msgs.length > 0) {
+    current.msgs.push({ r: 'a', t: '_[Respon dibatalkan oleh pengguna]_' });
+  }
+  syncSend();
+  renderAll();
+}
+
+function syncSend() {
+  const btn = $('send');
+  const inputEl = $('input');
+  if (busy) {
+    btn.disabled = false;
+    btn.className = "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-600 text-white shadow-md shadow-red-600/25 transition hover:bg-red-700 active:scale-[0.99]";
+    btn.setAttribute('aria-label', 'Batal respon');
+    btn.setAttribute('title', 'Hentikan respon AI');
+    btn.innerHTML = ICON_STOP;
+  } else {
+    const hasInput = (inputEl && !!inputEl.value.trim()) || attachments.length > 0;
+    btn.disabled = !hasInput;
+    btn.className = "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cobalt text-white shadow-md shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-40";
+    btn.setAttribute('aria-label', 'Kirim pesan');
+    btn.setAttribute('title', 'Kirim pesan');
+    btn.innerHTML = ICON_SEND;
+  }
+}
+
+function regenerateMsg(i) {
+  if (busy || !current) return;
+  let lastUserMsg = '';
+  for (let idx = i - 1; idx >= 0; idx--) {
+    if (current.msgs[idx].r === 'u') {
+      lastUserMsg = current.msgs[idx].t;
+      break;
+    }
+  }
+  current.msgs.splice(i, 1);
+  busy = true;
+  syncSend();
+  renderAll();
+
+  replyTimer = setTimeout(() => {
+    current.msgs.splice(i, 0, { r: 'a', t: reply(lastUserMsg || 'Permintaan ulang') });
+    busy = false;
+    replyTimer = null;
+    syncSend();
+    if (current) renderAll();
+  }, 1200 + Math.random() * 1000);
+}
+
+function feedbackMsg(i, type) {
+  if (!current || !current.msgs[i]) return;
+  current.msgs[i].feedback = current.msgs[i].feedback === type ? null : type;
+  renderAll();
+}
+
 function row(m, i) {
-  if (m.r === 'u') return `<div class="flex justify-end"><div class="max-w-[85%] whitespace-pre-wrap break-words rounded-2xl rounded-br-md bg-cobalt px-4 py-3 text-sm leading-relaxed text-white shadow-md shadow-cobalt/20">${esc(m.t)}</div></div>`;
+  if (m.r === 'u') {
+    let filesHtml = '';
+    if (m.files && m.files.length) {
+      filesHtml = `<div class="mb-2 flex flex-wrap gap-2">` + m.files.map(f => {
+        if (f.isImage) {
+          return `<a href="${f.url}" target="_blank" class="block overflow-hidden rounded-xl border border-white/20"><img src="${f.url}" class="max-h-48 max-w-full object-cover" alt="${esc(f.name)}"></a>`;
+        }
+        return `<div class="flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-xs font-semibold text-white"><svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="truncate max-w-[150px]">${esc(f.name)}</span></div>`;
+      }).join('') + `</div>`;
+    }
+    return `<div class="flex justify-end"><div class="max-w-[85%] break-words rounded-2xl rounded-br-md bg-cobalt px-4 py-3 text-sm leading-relaxed text-white shadow-md shadow-cobalt/20">${filesHtml}${m.t ? `<div>${esc(m.t)}</div>` : ''}</div></div>`;
+  }
+
+  const isLiked = m.feedback === 'like';
+  const isDisliked = m.feedback === 'dislike';
+
   return `<div class="flex gap-3"><div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-sun">${MARK}</div>
     <div class="min-w-0 flex-1"><div class="text-sm leading-relaxed">${fmt(m.t)}</div>
-    <button type="button" onclick="copyMsg(${i}, this)" class="mt-1.5 text-xs font-semibold text-slate-400 transition hover:text-cobalt dark:hover:text-cobalt-light">${COPY}</button></div></div>`;
+    <div class="mt-2.5 flex items-center gap-3 text-xs text-slate-400">
+      <button type="button" onclick="copyMsg(${i}, this)" class="flex items-center gap-1 font-semibold transition hover:text-cobalt dark:hover:text-cobalt-light">${COPY}</button>
+      <button type="button" onclick="regenerateMsg(${i})" class="flex items-center gap-1 font-semibold transition hover:text-cobalt dark:hover:text-cobalt-light">
+        <svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 2v6h-6M2.5 22v-6h6"/><path d="M2 11.5a10 10 0 0 1 18.8-4.3L21.5 8M22 12.5a10 10 0 0 1-18.8 4.3L2.5 16"/></svg>
+        <span>Coba lagi</span>
+      </button>
+      <div class="ml-1 flex items-center gap-1">
+        <button type="button" onclick="feedbackMsg(${i}, 'like')" aria-label="Suka respon" class="p-1 rounded transition ${isLiked ? 'text-cobalt dark:text-cobalt-light font-bold' : 'hover:text-cobalt dark:hover:text-cobalt-light'}">
+          <svg class="h-[1.1em] w-[1.1em] inline-block shrink-0" viewBox="0 0 24 24" fill="${isLiked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+        </button>
+        <button type="button" onclick="feedbackMsg(${i}, 'dislike')" aria-label="Tidak suka respon" class="p-1 rounded transition ${isDisliked ? 'text-red-500 font-bold' : 'hover:text-red-500'}">
+          <svg class="h-[1.1em] w-[1.1em] inline-block shrink-0" viewBox="0 0 24 24" fill="${isDisliked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"/></svg>
+        </button>
+      </div>
+    </div></div></div>`;
 }
 
 const TYPING = `<div class="up flex gap-3"><div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-sun">${MARK}</div>
@@ -202,7 +336,6 @@ function renderAll() {
   box.scrollTop = box.scrollHeight;
 }
 
-// ===== Sidebar riwayat =====
 const DESK = matchMedia('(min-width: 1024px)');
 let deskOpen = true, mobOpen = false;
 try { deskOpen = localStorage.getItem('noex_sidebar') !== 'closed'; } catch (e) {}
@@ -229,46 +362,81 @@ function toggleSidebar(open) {
 }
 
 function closeMobileSidebar() { mobOpen = false; renderSidebar(); }
+DESK.addEventListener('change', closeMobileSidebar);
 
-function newChat() { current = null; renderAll(); closeMobileSidebar(); input.focus(); }
-function openChat(id) { current = chats.find(c => c.id === id); renderAll(); closeMobileSidebar(); input.focus(); }
+function newChat() {
+  current = null;
+  renderAll();
+  closeMobileSidebar();
+  const inputEl = $('input');
+  if (inputEl) inputEl.focus();
+}
 
-function syncSend() { $('send').disabled = busy || !input.value.trim(); }
-function autosize() { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 160) + 'px'; }
+function openChat(id) {
+  current = chats.find(c => c.id === id);
+  renderAll();
+  closeMobileSidebar();
+  const inputEl = $('input');
+  if (inputEl) inputEl.focus();
+}
+
+function autosize() {
+  const inputEl = $('input');
+  if (!inputEl) return;
+  inputEl.style.height = 'auto';
+  inputEl.style.height = Math.min(inputEl.scrollHeight, 160) + 'px';
+}
 
 function reply(text) {
   return `Ini jawaban contoh karena dashboard belum tersambung ke model.\n\n**Pesanmu:** ${text}`;
 }
 
 function send(text) {
-  text = (text ?? input.value).trim();
-  if (!text || busy) return;
+  const inputEl = $('input');
+  text = (text ?? (inputEl ? inputEl.value : '')).trim();
+  if ((!text && attachments.length === 0) || busy) return;
+
   if (!current) {
-    current = { id: Date.now(), title: text.length > 32 ? text.slice(0, 32) + '…' : text, group: 'Hari ini', msgs: [] };
+    const titleText = text || (attachments[0] ? `Berkas: ${attachments[0].name}` : 'Percakapan baru');
+    current = { id: Date.now(), title: titleText.length > 32 ? titleText.slice(0, 32) + '…' : titleText, group: 'Hari ini', msgs: [] };
     chats.unshift(current);
   }
+
   const chat = current;
-  chat.msgs.push({ r: 'u', t: text });
-  input.value = ''; autosize();
-  busy = true; syncSend(); renderAll();
-  setTimeout(() => {
+  chat.msgs.push({ 
+    r: 'u', 
+    t: text, 
+    files: [...attachments] 
+  });
+
+  if (inputEl) inputEl.value = ''; 
+  attachments = []; 
+  renderAttachments();
+  autosize();
+  busy = true; 
+  syncSend(); 
+  renderAll();
+
+  replyTimer = setTimeout(() => {
     chat.msgs.push({ r: 'a', t: reply(text) });
-    busy = false; syncSend();
+    busy = false; 
+    replyTimer = null;
+    syncSend();
     if (current === chat) renderAll(); else renderHistory();
-  }, 900 + Math.random() * 700);
+  }, 1200 + Math.random() * 1000);
 }
 
 async function copyMsg(i, btn) {
   try {
     await navigator.clipboard.writeText(current.msgs[i].t);
-    btn.innerHTML = '<svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Tersalin';
+    btn.innerHTML = '<svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> <span>Tersalin</span>';
   } catch (e) {
-    btn.textContent = 'Gagal menyalin';
+    btn.textContent = 'Gagal';
   }
   setTimeout(() => { btn.innerHTML = COPY; }, 1500);
 }
 
-// ===== Alur autentikasi =====
+// Autentikasi
 const SESSION_KEY = 'noex_user';
 let oauthBusy = false;
 
@@ -291,7 +459,8 @@ function enterApp(user) {
   current = null;
   closeMobileSidebar();
   renderAll();
-  input.focus();
+  const inputEl = $('input');
+  if (inputEl) inputEl.focus();
 }
 
 function logout() {
@@ -327,7 +496,7 @@ function loginWithOAuth(provider) {
   setTimeout(() => { oauthBusy = false; enterApp({ name: 'Dimas Pratama' }); }, 900);
 }
 
-// ===== Mode Gelap / Terang =====
+// Tema
 const THEME_KEY = 'noex_theme';
 
 function applyTheme(dark) {
@@ -348,7 +517,7 @@ function toggleTheme() {
   setTimeout(() => root.classList.remove('theme-anim'), 400);
 }
 
-// ===== Checkout Langganan =====
+// Checkout Modal
 const PRICE = 49000;
 const rupiah = n => 'Rp ' + n.toLocaleString('id-ID');
 const METHODS = [
@@ -365,7 +534,10 @@ const METHODS = [
   { id: 'alfamart', label: 'Alfamart', ab: 'AM', c: '#E4002B', t: 'store' },
   { id: 'card', g: 'Kartu', label: 'Kartu Kredit / Debit', sub: 'Visa, Mastercard, JCB', ab: 'CC', c: '#161B3D', t: 'card' },
 ];
-
+Object.assign(ICON, {
+  check: ['s', '<path d="M20 6 9 17l-5-5"/>'],
+  chev: ['s', '<path d="m9 18 6-6-6-6"/>'],
+});
 const C_BTN = 'flex w-full items-center justify-center gap-2 rounded-xl bg-cobalt py-3.5 text-sm font-bold text-white shadow-lg shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-[0.99] disabled:cursor-wait disabled:opacity-60';
 const C_INPUT = 'w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:ring-4 focus:ring-cobalt/15 dark:border-night-700 dark:bg-night-800/70';
 const C_NOTE = 'text-xs text-slate-500 dark:text-slate-400';
@@ -500,35 +672,30 @@ function payNow(e) {
   }, 1600);
 }
 
-// ===== Event Listener Setup (setelah DOM Siap) =====
 document.addEventListener('DOMContentLoaded', () => {
-  input = $('input');
+  const inputEl = $('input');
+  if (inputEl) {
+    inputEl.addEventListener('input', () => { autosize(); syncSend(); });
+    inputEl.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); send(); }
+    });
+  }
 
-  // Event listener input chat
-  input.addEventListener('input', () => { autosize(); syncSend(); });
-  input.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); send(); }
-  });
+  const payModal = $('pay-modal');
+  if (payModal) {
+    payModal.addEventListener('click', e => { if (e.target === e.currentTarget) closePay(); });
+  }
 
-  // Modal event listener
-  $('pay-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closePay(); });
-
-  // Sidebar responsif
-  DESK.addEventListener('change', closeMobileSidebar);
-
-  // Pulihkan sesi pengguna jika ada
-  try {
-    const saved = JSON.parse(sessionStorage.getItem(SESSION_KEY));
-    if (saved && saved.name) enterApp(saved);
-  } catch (e) {}
-
-  // Inisialisasi awal
   applyTheme(document.documentElement.classList.contains('dark'));
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     try { if (!localStorage.getItem(THEME_KEY)) applyTheme(e.matches); } catch (err) {}
   });
 
-  renderSidebar();
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(SESSION_KEY));
+    if (saved && saved.name) enterApp(saved);
+  } catch (e) {}
+
   renderAll();
   syncSend();
 });
