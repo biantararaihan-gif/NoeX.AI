@@ -5,15 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Masuk ke NoeX.ai</title>
 
-  <!-- Tailwind CDN & Fonts -->
+  <!-- Tailwind CDN untuk prototipe -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400..800&family=Figtree:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 
-  <!-- External Stylesheet & Script -->
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <script>
+    if (window.tailwind) {
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              cobalt: { DEFAULT: '#2446E8', deep: '#1A36C2', light: '#4B6BFF' },
+              sun: { DEFAULT: '#FFC93C', bright: '#FFE082', dark: '#E6A800' },
+              ink: '#161B3D',
+              night: { 950: '#090D20', 900: '#101736', 800: '#19224A', 700: '#263163' },
+              mist: '#F8FAFC',
+              line: '#E2E8F0',
+            },
+            fontFamily: {
+              display: ['"Bricolage Grotesque"', 'sans-serif'],
+              sans: ['Figtree', 'sans-serif'],
+            },
+          },
+        },
+      }
+    }
+  </script>
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('noex_theme');
+        var dark = t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body class="bg-slate-50 dark:bg-night-950 font-sans text-ink dark:text-slate-100 antialiased">
@@ -249,13 +280,23 @@
       <header class="relative z-10 flex items-center gap-3 border-b border-slate-200/70 dark:border-night-700/70 bg-white/70 dark:bg-night-800/70 px-4 py-3 backdrop-blur-xl sm:px-6">
         <button type="button" id="sb-open" onclick="toggleSidebar(true)" class="rounded-lg p-2 text-lg text-ink/70 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-night-800 hover:text-ink dark:hover:text-white" aria-label="Buka sidebar" title="Buka sidebar" aria-controls="sidebar" aria-expanded="false"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg></button>
         <h1 id="chat-title" class="min-w-0 flex-1 truncate font-display text-lg font-bold">Percakapan baru</h1>
+        <button type="button" onclick="openSettings()" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 text-ink dark:text-slate-100 shadow-sm transition hover:bg-slate-50 dark:hover:bg-night-700 active:scale-95" aria-label="Pengaturan AI" title="Pengaturan AI"><svg class="text-lg h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
         <button type="button" onclick="toggleTheme()" class="theme-toggle flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 text-ink dark:text-slate-100 shadow-sm transition hover:bg-slate-50 dark:hover:bg-night-700 active:scale-95" aria-label="Beralih ke mode gelap" aria-pressed="false"><span class="block dark:hidden"><svg class="text-xl h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="hidden dark:block"><svg class="text-xl text-sun h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span></button>
         <label for="model" class="sr-only">Model</label>
-        <select id="model" class="rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-2 pl-3 pr-8 text-sm font-semibold text-ink dark:text-slate-100 shadow-sm">
-          <option>NoeX Cepat</option>
-          <option selected>NoeX Pro</option>
-          <option>NoeX Nalar</option>
+        <select id="model" class="hidden rounded-xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 py-2 pl-3 pr-8 text-sm font-semibold text-ink dark:text-slate-100 shadow-sm md:block">
+          <option value="cepat">NoeX Cepat</option>
+          <option value="pro" selected>NoeX Pro</option>
+          <option value="nalar">NoeX Nalar</option>
         </select>
+        <div id="chat-menu-wrap" class="relative">
+          <button type="button" id="chat-menu-btn" onclick="toggleChatMenu()" aria-haspopup="menu" aria-expanded="false" class="rounded-lg p-2 text-lg text-ink/70 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-night-800 hover:text-ink dark:hover:text-white" aria-label="Menu percakapan" title="Menu percakapan"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
+          <div id="chat-menu" role="menu" class="hidden absolute right-0 top-full z-40 mt-2 w-60 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1.5 shadow-xl dark:border-night-700 dark:bg-night-800">
+            <button type="button" role="menuitem" onclick="menuAction('rename')" class="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-left text-sm font-semibold text-ink transition hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-night-700"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg><span>Ganti nama</span></button>
+            <button type="button" role="menuitem" onclick="menuAction('export')" class="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-left text-sm font-semibold text-ink transition hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-night-700"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span>Ekspor sebagai .md</span></button>
+            <div class="my-1 h-px bg-slate-200 dark:bg-night-700"></div>
+            <button type="button" role="menuitem" onclick="menuAction('delete')" class="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-left text-sm font-semibold text-red-600 transition hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/10"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>Hapus percakapan</span></button>
+          </div>
+        </div>
       </header>
 
       <div id="messages" role="log" aria-live="polite" class="relative flex-1 overflow-y-auto"></div>
@@ -263,13 +304,13 @@
       <!-- Input Pesan & Lampiran -->
       <div class="relative px-4 pb-4 sm:px-6">
         <div class="mx-auto w-full max-w-3xl">
-          
+
           <div id="attachment-preview" class="mb-2 hidden flex-wrap gap-2 rounded-xl border border-slate-200 dark:border-night-700 bg-white/50 dark:bg-night-800/50 p-2"></div>
 
           <div class="flex items-end gap-2 rounded-2xl border border-slate-200 dark:border-night-700 bg-white dark:bg-night-800 p-2 shadow-lg shadow-cobalt/5 transition focus-within:border-cobalt focus-within:ring-4 focus-within:ring-cobalt/15">
-            
+
             <input type="file" id="file-input" multiple accept="image/*,.pdf,.doc,.docx,.txt" onchange="handleFileSelect(event)" class="hidden">
-            
+
             <button type="button" onclick="$('file-input').click()" aria-label="Unggah foto atau dokumen" title="Unggah berkas" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-400 transition hover:bg-slate-100 dark:hover:bg-night-700 hover:text-ink dark:hover:text-white">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
@@ -277,7 +318,7 @@
             </button>
 
             <textarea id="input" rows="1" placeholder="Tulis pesan atau unggah berkas…" aria-label="Pesan" class="max-h-40 min-h-[44px] flex-1 resize-none bg-transparent px-2 py-2.5 text-sm outline-none placeholder:text-slate-400"></textarea>
-            
+
             <button type="button" id="send" onclick="handleSendClick()" aria-label="Kirim pesan" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cobalt text-white shadow-md shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-40">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 19V5M5 12l7-7 7 7"/>
@@ -304,3 +345,53 @@
   </div>
   <div id="pay-body" class="max-h-[75dvh] overflow-y-auto px-6 py-5"></div>
 </dialog>
+
+<!-- MODAL PENGATURAN AI -->
+<dialog id="settings-modal" aria-labelledby="settings-title" class="m-auto w-[calc(100%-2rem)] max-w-lg overflow-hidden rounded-3xl border border-slate-200 bg-white p-0 text-ink shadow-2xl backdrop:bg-ink/60 backdrop:backdrop-blur-sm dark:border-night-700 dark:bg-night-900 dark:text-slate-100">
+  <div class="flex items-center justify-between gap-2 border-b border-slate-200 px-5 py-4 dark:border-night-700">
+    <h2 id="settings-title" class="truncate font-display text-lg font-bold">Pengaturan AI</h2>
+    <button type="button" onclick="closeSettings()" class="rounded-lg p-2 text-lg text-slate-500 transition hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-night-800" aria-label="Tutup"><svg class="h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <form onsubmit="saveSettings(event)" class="max-h-[75dvh] space-y-4 overflow-y-auto px-6 py-5">
+    <div>
+      <label for="set-base" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Base URL API (OpenAI-compatible)</label>
+      <input id="set-base" type="url" placeholder="https://api.openai.com/v1" class="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:ring-4 focus:ring-cobalt/15 dark:border-night-700 dark:bg-night-800/70">
+    </div>
+    <div>
+      <label for="set-key" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">API Key</label>
+      <div class="relative">
+        <input id="set-key" type="password" autocomplete="off" placeholder="sk-…" class="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 pr-11 text-sm outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:ring-4 focus:ring-cobalt/15 dark:border-night-700 dark:bg-night-800/70">
+        <button type="button" onclick="togglePassword('set-key')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-ink dark:hover:text-white" aria-label="Tampilkan API key">
+          <svg class="text-sm h-[1em] w-[1em] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <p class="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">Kunci hanya tersimpan di browser (localStorage) dan dipakai untuk memanggil Base URL di atas. Tanpa API key, NoeX menjawab dalam mode simulasi.</p>
+    </div>
+    <div class="grid gap-3 sm:grid-cols-3">
+      <div>
+        <label for="set-fast" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Model Cepat</label>
+        <input id="set-fast" placeholder="gpt-4o-mini" class="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:ring-4 focus:ring-cobalt/15 dark:border-night-700 dark:bg-night-800/70">
+      </div>
+      <div>
+        <label for="set-pro" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Model Pro</label>
+        <input id="set-pro" placeholder="gpt-4o" class="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:ring-4 focus:ring-cobalt/15 dark:border-night-700 dark:bg-night-800/70">
+      </div>
+      <div>
+        <label for="set-nalar" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">Model Nalar</label>
+        <input id="set-nalar" placeholder="o3-mini" class="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-cobalt focus:ring-4 focus:ring-cobalt/15 dark:border-night-700 dark:bg-night-800/70">
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-2 pt-1">
+      <button type="submit" class="flex-1 rounded-xl bg-cobalt py-3 text-sm font-bold text-white shadow-lg shadow-cobalt/25 transition hover:bg-cobalt-deep active:scale-[0.99]">Simpan Pengaturan</button>
+      <button type="button" onclick="clearSettings()" class="rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 dark:border-night-700 dark:text-slate-300 dark:hover:bg-night-700">Hapus</button>
+    </div>
+    <p class="text-xs leading-relaxed text-slate-500 dark:text-slate-400">Kompatibel dengan layanan yang punya endpoint <code class="rounded bg-slate-100 px-1 py-0.5 dark:bg-night-800">/chat/completions</code>: OpenAI, Groq, OpenRouter, dan sejenisnya. Contoh base URL Groq: <code class="rounded bg-slate-100 px-1 py-0.5 dark:bg-night-800">https://api.groq.com/openai/v1</code></p>
+  </form>
+</dialog>
+
+<div id="toast" role="status" aria-live="polite" class="pointer-events-none fixed bottom-20 left-1/2 z-50 -translate-x-1/2 rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-white opacity-0 shadow-xl transition-opacity duration-300 dark:bg-night-700"></div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
