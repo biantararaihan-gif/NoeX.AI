@@ -5,46 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Masuk ke NoeX.ai</title>
 
-  <!-- Tailwind CDN untuk prototipe -->
+  <!-- Tailwind CDN & Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400..800&family=Figtree:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
 
-  <script>
-    if (window.tailwind) {
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              cobalt: { DEFAULT: '#2446E8', deep: '#1A36C2', light: '#4B6BFF' },
-              sun: { DEFAULT: '#FFC93C', bright: '#FFE082', dark: '#E6A800' },
-              ink: '#161B3D',
-              night: { 950: '#090D20', 900: '#101736', 800: '#19224A', 700: '#263163' },
-              mist: '#F8FAFC',
-              line: '#E2E8F0',
-            },
-            fontFamily: {
-              display: ['"Bricolage Grotesque"', 'sans-serif'],
-              sans: ['Figtree', 'sans-serif'],
-            },
-          },
-        },
-      }
-    }
-  </script>
-
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('noex_theme');
-        var dark = t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.toggle('dark', dark);
-      } catch (e) {}
-    })();
-  </script>
+  <!-- Custom CSS & JS -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body class="bg-slate-50 dark:bg-night-950 font-sans text-ink dark:text-slate-100 antialiased">
@@ -391,7 +360,5 @@
 
 <div id="toast" role="status" aria-live="polite" class="pointer-events-none fixed bottom-20 left-1/2 z-50 -translate-x-1/2 rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-white opacity-0 shadow-xl transition-opacity duration-300 dark:bg-night-700"></div>
 
-
-<script src="script.js"></script>
 </body>
 </html>
