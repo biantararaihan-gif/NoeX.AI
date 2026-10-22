@@ -1,4 +1,4 @@
-// Konfigurasi Tailwind Kustom
+// Konfigurasi Tailwind CSS
 if (window.tailwind) {
   tailwind.config = {
     darkMode: 'class',
@@ -18,10 +18,10 @@ if (window.tailwind) {
         },
       },
     },
-  }
+  };
 }
 
-// Inisialisasi Tema Gelap/Terang
+// Inisialisasi Tema
 (function () {
   try {
     var t = localStorage.getItem('noex_theme');
@@ -30,17 +30,17 @@ if (window.tailwind) {
   } catch (e) {}
 })();
 
-// Ikon SVG Helper
+// Konstanta dan Ikon
 const ICON = {
-  "eye":["s","<path d=\"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>"],
-  "eyeOff":["s","<path d=\"M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22\"/>"],
-  "mail":["s","<path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"/><path d=\"m22 6-10 7L2 6\"/>"],
-  "lightbulb":["s","<path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\"/><path d=\"M9 18h6M10 22h4\"/>"],
-  "calendarCheck":["s","<path d=\"M8 2v4M16 2v4\"/><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 10h18M9 16l2 2 4-4\"/>"],
-  "listCheck":["s","<path d=\"m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8\"/>"],
-  "x":["s","<path d=\"M18 6 6 18M6 6l12 12\"/>"],
-  "check":['s', '<path d="M20 6 9 17l-5-5"/>'],
-  "chev":['s', '<path d="m9 18 6-6-6-6"/>'],
+  "eye": ["s", "<path d=\"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>"],
+  "eyeOff": ["s", "<path d=\"M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22\"/>"],
+  "mail": ["s", "<path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"/><path d=\"m22 6-10 7L2 6\"/>"],
+  "lightbulb": ["s", "<path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\"/><path d=\"M9 18h6M10 22h4\"/>"],
+  "calendarCheck": ["s", "<path d=\"M8 2v4M16 2v4\"/><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 10h18M9 16l2 2 4-4\"/>"],
+  "listCheck": ["s", "<path d=\"m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8\"/>"],
+  "x": ["s", "<path d=\"M18 6 6 18M6 6l12 12\"/>"],
+  "check": ['s', '<path d="M20 6 9 17l-5-5"/>'],
+  "chev": ['s', '<path d="m9 18 6-6-6-6"/>'],
 };
 
 const ic = (name, cls = '') => {
@@ -112,6 +112,33 @@ const SUGGEST = [
   { icon: 'lightbulb', t: 'Jelaskan dengan sederhana', p: 'Jelaskan cara kerja blockchain seolah-olah aku baru pertama kali mendengarnya.' },
   { icon: 'calendarCheck', t: 'Rencana belajar 4 minggu', p: 'Buatkan rencana belajar 4 minggu untuk dasar-dasar desain UI.' },
   { icon: 'listCheck', t: 'Rapikan catatan rapat', p: 'Ubah catatan rapat berantakan menjadi poin tindak lanjut yang jelas.' },
+];
+
+// ---------- Persona (system prompt) ----------
+const PERSONAS = [
+  { id: 'default', name: 'NoeX Standar', sys: 'Kamu adalah NoeX, asisten AI berbahasa Indonesia yang ramah, jelas, dan efektif. Jawab dengan bahasa Indonesia yang natural kecuali diminta bahasa lain.' },
+  { id: 'writer', name: 'Penulis', sys: 'Kamu adalah penulis profesional berbahasa Indonesia. Fokus pada struktur yang rapi, gaya yang mengalir, dan kata yang tepat. Selalu tawarkan versi alternatif bila diminta.' },
+  { id: 'coder', name: 'Programmer', sys: 'Kamu adalah software engineer senior. Jawab dengan kode yang benar dan bisa langsung dijalankan, sertakan penjelasan singkat, sebutkan edge case, dan sarankan perbaikan performa/keamanan bila relevan.' },
+  { id: 'teacher', name: 'Guru', sys: 'Kamu adalah guru yang sabar dan mudah dimengerti. Jelaskan konsep dari dasar dengan analogi sederhana, hindari jargon tanpa penjelasan, dan tutup dengan ringkasan atau pertanyaan pemahaman.' },
+  { id: 'business', name: 'Bisnis', sys: 'Kamu adalah konsultan bisnis yang praktis. Berikan analisis tajam, rekomendasi yang bisa dieksekusi, dan bila perlu struktur seperti SWOT, rencana aksi, atau estimasi angka.' },
+  { id: 'creative', name: 'Kreatif', sys: 'Kamu adalah partner brainstorming yang berani dan playful. Utamakan ide orisinal, kombinasi tak terduga, dan berikan banyak opsi sebelum menyempit ke satu arah terbaik.' },
+  { id: 'custom', name: 'Kustom (system prompt sendiri)', sys: '' },
+];
+
+// ---------- Template prompt ----------
+const TEMPLATES = [
+  { cat: 'Menulis', t: 'Email penawaran singkat', p: 'Bantu aku menulis email penawaran jasa ke calon klien. Konteks: [jelaskan jasa & klien]. Gaya: sopan, singkat, fokus pada manfaat, tutup dengan call to action yang halus.' },
+  { cat: 'Menulis', t: 'Perbaiki & rapikan tulisan', p: 'Perbaiki tata bahasa, ejaan, dan alur tulisan berikut tanpa mengubah makna:\n\n[tempel tulisan]' },
+  { cat: 'Menulis', t: 'Ringkas jadi 3 poin', p: 'Rangkum teks berikut menjadi maksimal 3 poin utama, langsung ke inti:\n\n[tempel teks]' },
+  { cat: 'Kerja', t: 'Rencana kerja 1 minggu', p: 'Buatkan rencana kerja untuk 1 minggu ke depan dengan prioritas tinggi/sedang/rendah, estimasi waktu tiap tugas, dan hasil yang diharapkan. Konteks pekerjaanku: [isi]' },
+  { cat: 'Kerja', t: 'Bahan presentasi', p: 'Buat kerangka presentasi 10 slide tentang [topik] untuk audiens [audiens]. Sertakan judul slide, 3 poin utama per slide, dan catatan pembicara singkat.' },
+  { cat: 'Kerja', t: 'Balas email sulit', p: 'Tulis balasan email yang profesional namun tegas untuk situasi berikut: [jelaskan situasi]. Mau: [tolak dengan sopan / negosiasi / minta waktu]' },
+  { cat: 'Coding', t: 'Jelaskan error', p: 'Jelaskan error berikut: apa penyebabnya, kenapa terjadi, dan cara memperbaikinya dengan contoh kode:\n\n[tempel error + kode]' },
+  { cat: 'Coding', t: 'Review kode', p: 'Review kode berikut: temukan bug, masalah keamanan, dan peluang refactor. Urutkan dari paling penting, sertakan perbaikannya:\n\n[tempel kode]' },
+  { cat: 'Coding', t: 'Buat fungsi dari spesifikasi', p: 'Buatkan fungsi dengan spesifikasi berikut (bahasa: [JS/Python/dll]):\n- Input: \n- Output: \n- Edge case: \nSertakan contoh pemakaian dan unit test singkat.' },
+  { cat: 'Belajar', t: 'Rencana belajar 4 minggu', p: 'Buatkan rencana belajar 4 minggu untuk [topik] dengan level [pemula/menengah]. Susun per minggu: materi, praktik, dan mini-proyek. Alokasikan waktu harian yang realistis.' },
+  { cat: 'Belajar', t: 'Jelaskan sederhana', p: 'Jelaskan [konsep] seolah-olah aku baru pertama kali mendengarnya. Gunakan analogi kehidupan sehari-hari, lalu tutup dengan 2 pertanyaan untuk menguji pemahamanku.' },
+  { cat: 'Belajar', t: 'Kuis pemahaman', p: 'Buatkan 5 pertanyaan kuis (pilihan ganda + jawaban + penjelasan) tentang [topik] untuk mengukur pemahamanku di level [tingkat].' },
 ];
 
 function seedChats() {
@@ -330,8 +357,37 @@ function syncSend() {
   }
 }
 
-// Integrasi Model AI & LocalStorage Settings
+// ---------- Integrasi model AI ----------
 const SETTINGS_KEY = 'noex_settings';
+let SERVER_CFG = { hasServerKey: false, defaultBase: '[https://api.openai.com/v1](https://api.openai.com/v1)', fetched: false };
+
+async function fetchServerConfig() {
+  try {
+    const r = await fetch('/api/config', { cache: 'no-store' });
+    if (r.ok) {
+      const j = await r.json();
+      SERVER_CFG = { hasServerKey: !!j.hasServerKey, defaultBase: j.defaultBase || SERVER_CFG.defaultBase, allowedHosts: j.allowedHosts || [], fetched: true };
+    }
+  } catch (e) {}
+  renderServerStatus();
+  return SERVER_CFG;
+}
+
+function renderServerStatus() {
+  const dot = $('server-dot'), txt =$('server-status-text');
+  if (!dot || !txt) return;
+  if (SERVER_CFG.hasServerKey) {
+    dot.className = 'h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-500';
+    txt.innerHTML = '<b>Server terhubung.</b> API key terkonfigurasi di server — kolom API key di bawah bisa dikosongkan. Identitas kunci tidak pernah menyentuh browser.';
+  } else if (SERVER_CFG.fetched) {
+    dot.className = 'h-2.5 w-2.5 shrink-0 rounded-full bg-amber-400';
+    txt.innerHTML = '<b>Server berjalan tanpa key.</b> Masukkan API key di bawah (BYOK) untuk jawaban sungguhan, atau kosongkan untuk mode simulasi.';
+  } else {
+    dot.className = 'h-2.5 w-2.5 shrink-0 rounded-full bg-slate-400';
+    txt.textContent = 'Mode statis / server belum terdeteksi — semua permintaan model butuh API key lokal.';
+  }
+}
+fetchServerConfig();
 
 function getSettings() {
   try {
@@ -339,6 +395,8 @@ function getSettings() {
     return {
       base: s.base || '[https://api.openai.com/v1](https://api.openai.com/v1)',
       key: s.key || '',
+      persona: s.persona || 'default',
+      sysprompt: s.sysprompt || '',
       models: {
         cepat: (s.models && s.models.cepat) || 'gpt-4o-mini',
         pro: (s.models && s.models.pro) || 'gpt-4o',
@@ -346,8 +404,44 @@ function getSettings() {
       },
     };
   } catch (e) {
-    return { base: '[https://api.openai.com/v1](https://api.openai.com/v1)', key: '', models: { cepat: 'gpt-4o-mini', pro: 'gpt-4o', nalar: 'o3-mini' } };
+    return { base: '[https://api.openai.com/v1](https://api.openai.com/v1)', key: '', persona: 'default', sysprompt: '', models: { cepat: 'gpt-4o-mini', pro: 'gpt-4o', nalar: 'o3-mini' } };
   }
+}
+
+function initPersonaSelects() {
+  const opts = PERSONAS.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+  $('persona').innerHTML = opts;
+  $('set-persona').innerHTML = opts;
+  syncPersonaSelect();
+}
+
+function personaName(id) { const p = PERSONAS.find(x => x.id === id); return p ? p.name : 'NoeX Standar'; }
+
+function sysPromptFor(id) {
+  if (id === 'custom') return getSettings().sysprompt.trim();
+  const p = PERSONAS.find(x => x.id === id);
+  return p ? p.sys : '';
+}
+
+function onPersonaChange() {
+  const v = $('persona').value;
+  if (current) {
+    current.persona = v;
+    saveChats();
+    toast('Persona percakapan ini: ' + personaName(v));
+  } else {
+    try {
+      const raw = JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {};
+      raw.persona = v;
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(raw));
+    } catch (e) {}
+    toast('Persona bawaan: ' + personaName(v));
+  }
+}
+
+function syncPersonaSelect() {
+  const id = (current && current.persona) || getSettings().persona;
+  if ($('persona').value !== id)$('persona').value = id;
 }
 
 function openSettings() {
@@ -357,6 +451,9 @@ function openSettings() {
   $('set-fast').value = s.models.cepat;
   $('set-pro').value = s.models.pro;
   $('set-nalar').value = s.models.nalar;
+  $('set-persona').value = s.persona;
+  $('set-sysprompt').value = s.sysprompt;
+  fetchServerConfig();
   $('settings-modal').showModal();$('set-base').focus();
 }
 
@@ -367,6 +464,8 @@ function saveSettings(e) {
   const s = {
     base: $('set-base').value.trim() || '[https://api.openai.com/v1](https://api.openai.com/v1)',
     key: $('set-key').value.trim(),
+    persona: $('set-persona').value || 'default',
+    sysprompt: $('set-sysprompt').value.trim(),
     models: {
       cepat: $('set-fast').value.trim() || 'gpt-4o-mini',
       pro: $('set-pro').value.trim() || 'gpt-4o',
@@ -374,33 +473,60 @@ function saveSettings(e) {
     },
   };
   try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(s)); } catch (err) {}
+  if (s.persona === 'custom' && !s.sysprompt) {
+    toast('⚠️ Persona Kustom dipilih tapi system prompt kosong — AI tetap pakai gaya default.');
+  } else {
+    toast((SERVER_CFG.hasServerKey || s.key)
+      ? 'Pengaturan tersimpan — respons kini dari model sungguhan.'
+      : 'Tersimpan — mode simulasi aktif (tanpa API key).');
+  }
+  syncPersonaSelect();
   closeSettings();
-  toast(s.key ? 'Pengaturan tersimpan — respons kini dari model sungguhan.' : 'Tersimpan — mode simulasi aktif (tanpa API key).');
 }
 
 function clearSettings() {
   try { localStorage.removeItem(SETTINGS_KEY); } catch (e) {}
   $('set-key').value = '';
-  toast('Konfigurasi dihapus. Mode simulasi aktif.');
+  $('set-sysprompt').value = '';$('set-persona').value = 'default';
+  syncPersonaSelect();
+  toast(SERVER_CFG.hasServerKey
+    ? 'Konfigurasi lokal dihapus — tetap pakai API key server.'
+    : 'Konfigurasi dihapus. Mode simulasi aktif.');
 }
 
-const toHist = msgs => msgs
-  .filter(m => !m.stream)
-  .map(m => ({
-    role: m.r === 'u' ? 'user' : 'assistant',
-    content: m.r === 'u' && m.files && m.files.length
-      ? (m.t ? m.t + '\n' : '') + '[Lampiran: ' + m.files.map(f => f.name).join(', ') + ']'
-      : (m.t || ''),
-  }))
-  .filter(m => m.content);
+const toHist = (msgs, personaId) => {
+  const hist = msgs
+    .filter(m => !m.stream)
+    .map(m => ({
+      role: m.r === 'u' ? 'user' : 'assistant',
+      content: m.r === 'u' && m.files && m.files.length
+        ? (m.t ? m.t + '\n' : '') + '[Lampiran: ' + m.files.map(f => f.name).join(', ') + ']'
+        : (m.t || ''),
+    }))
+    .filter(m => m.content);
+  const sys = sysPromptFor(personaId);
+  return sys ? [{ role: 'system', content: sys }, ...hist] : hist;
+};
 
 async function streamAI(s, history, onChunk, aborter) {
-  const res = await fetch(s.base.replace(/\/+$/, '') + '/chat/completions', {
+  const res = await fetch('/api/chat/completions', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + s.key },
-    body: JSON.stringify({ model: s.models[$('model').value] || s.models.pro, messages: history, stream: true, temperature: 0.7 }),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      base: s.base,
+      model: s.models[$('model').value] || s.models.pro,
+      messages: history,
+      stream: true,
+      temperature: 0.7,
+      apiKey: SERVER_CFG.hasServerKey ? undefined : (s.key || undefined),
+    }),
     signal: aborter.signal,
   });
+  if (res.status === 401 && res.headers.get('x-noex-error') === 'no-key') {
+    const err = new Error('NO_KEY');
+    err.code = 'NO_KEY';
+    throw err;
+  }
   if (!res.ok) {
     let d = '';
     try { d = await res.text(); } catch (e) {}
@@ -463,8 +589,10 @@ async function runAssistant(chat, history) {
     renderAll();
   };
 
+  const useApi = SERVER_CFG.hasServerKey || !!s.key;
+
   try {
-    if (s.key) {
+    if (useApi) {
       aborter = new AbortController();
       await streamAI(s, history, append, aborter);
     } else {
@@ -474,6 +602,12 @@ async function runAssistant(chat, history) {
   } catch (err) {
     if (err && err.name === 'AbortError') {
       m.t += '\n\n_[Respon dibatalkan oleh pengguna]_';
+      settle();
+    } else if (err && err.code === 'NO_KEY') {
+      SERVER_CFG.hasServerKey = false;
+      renderServerStatus();
+      m.t = '';
+      await new Promise((res) => { simTimer = simStream(simText(history) + '\n\n_(Mode simulasi — tambahkan API key lewat pengaturan AI untuk jawaban sungguhan.)_', append, res); });
       settle();
     } else {
       m.t = '⚠️ **Gagal memanggil model:** ' + (err && err.message ? err.message : err) +
@@ -493,7 +627,7 @@ function regenerateMsg(i) {
   if (busy || !current) return;
   current.msgs.splice(i, 1);
   saveChats();
-  runAssistant(current, toHist(current.msgs));
+  runAssistant(current, toHist(current.msgs, current.persona));
 }
 
 function feedbackMsg(i, type) {
@@ -547,6 +681,7 @@ const TYPING = `<div class="up flex gap-3"><div class="mt-0.5 flex h-8 w-8 shrin
 function renderAll() {
   renderHistory();
   $('chat-title').textContent = current ? current.title : 'Percakapan baru';
+  syncPersonaSelect();
   const box = $('messages');
   if (current) {
     const visible = current.msgs.filter(m => !(m.stream && !m.t));
@@ -593,7 +728,7 @@ function openChat(id) { current = chats.find(c => c.id === id); renderAll(); clo
 
 function autosize() { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 160) + 'px'; }
 
-// Kelola Percakapan
+// ---------- Kelola percakapan ----------
 function renameChat() {
   if (!current) { toast('Mulai atau pilih percakapan dulu.'); return; }
   const h = $('chat-title');
@@ -656,14 +791,14 @@ function toggleChatMenu(force) {
 function menuAction(a) { toggleChatMenu(false); if (a === 'rename') renameChat(); else if (a === 'export') exportChat(); else deleteChat(); }
 document.addEventListener('click', e => { if (!e.target.closest('#chat-menu-wrap')) toggleChatMenu(false); });
 
-// Kirim Pesan
+// ---------- Kirim pesan ----------
 function send(text) {
   text = (text ?? input.value).trim();
   if ((!text && attachments.length === 0) || busy) return;
 
   if (!current) {
     const titleText = text || (attachments[0] ? `Berkas: ${attachments[0].name}` : 'Percakapan baru');
-    current = { id: Date.now(), title: titleText.length > 32 ? titleText.slice(0, 32) + '…' : titleText, group: 'Hari ini', msgs: [] };
+    current = { id: Date.now(), title: titleText.length > 32 ? titleText.slice(0, 32) + '…' : titleText, group: 'Hari ini', persona: getSettings().persona, msgs: [] };
     chats.unshift(current);
   }
 
@@ -679,7 +814,7 @@ function send(text) {
   renderAttachments();
   autosize();
   saveChats();
-  runAssistant(chat, toHist(chat.msgs));
+  runAssistant(chat, toHist(chat.msgs, chat.persona));
 }
 
 async function copyMsg(i, btn) {
@@ -697,7 +832,10 @@ input.addEventListener('keydown', e => {
   if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); send(); }
 });
 
-// Autentikasi Sesi
+renderAll();
+syncSend();
+
+// Autentikasi
 const SESSION_KEY = 'noex_user';
 let oauthBusy = false;
 
@@ -763,7 +901,12 @@ function loginWithOAuth(provider) {
   setTimeout(() => { oauthBusy = false; enterApp({ name: 'Dimas Pratama' }); }, 900);
 }
 
-// Beralih Mode Gelap/Terang
+try {
+  const saved = JSON.parse(sessionStorage.getItem(SESSION_KEY));
+  if (saved && saved.name) enterApp(saved);
+} catch (e) {}
+
+// Tema
 const THEME_KEY = 'noex_theme';
 
 function applyTheme(dark) {
@@ -801,7 +944,54 @@ function toast(msg) {
 
 $('settings-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeSettings(); });
 
-// Checkout Modal & Pembayaran
+// ---------- Modal Template Prompt ----------
+function openTemplates() {
+  renderTemplates();
+  $('prompt-modal').showModal();
+  $('tpl-search').value = '';
+  $('tpl-search').focus();
+}
+
+function closeTemplates() { $('prompt-modal').close(); }
+
+function renderTemplates() {
+  const q = ($('tpl-search').value || '').trim().toLowerCase();
+  const list = TEMPLATES
+    .map((t, i) => ({ ...t, i }))
+    .filter(t => !q || t.t.toLowerCase().includes(q) || t.p.toLowerCase().includes(q) || t.cat.toLowerCase().includes(q));
+  if (!list.length) {
+    $('tpl-list').innerHTML = '<p class="py-6 text-center text-sm text-slate-500 dark:text-slate-400">Tidak ada template yang cocok.</p>';
+    return;
+  }
+  const cats = [...new Set(list.map(t => t.cat))];
+  $('tpl-list').innerHTML = cats.map(cat => `
+    <p class="mb-2 mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500 first:mt-0 dark:text-slate-400">${cat}</p>
+    ${list.filter(t => t.cat === cat).map(t => `
+      <button type="button" onclick="useTemplate(${t.i})" class="mb-1.5 flex w-full items-start gap-3 rounded-xl border border-slate-200 p-3 text-left transition hover:border-cobalt hover:bg-cobalt/5 dark:border-night-700 dark:hover:border-cobalt-light">
+        <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cobalt/10 text-cobalt dark:text-cobalt-light">${ic('listCheck')}</span>
+        <span class="min-w-0 flex-1">
+          <span class="block text-sm font-semibold">${esc(t.t)}</span>
+          <span class="mt-0.5 block truncate text-xs text-slate-500 dark:text-slate-400">${esc(t.p.replace(/\n/g, ' ').slice(0, 90))}…</span>
+        </span>
+        <span class="mt-1 text-slate-400">${ic('chev')}</span>
+      </button>`).join('')}`).join('');
+}
+
+function useTemplate(i) {
+  const t = TEMPLATES[i];
+  if (!t) return;
+  input.value = t.p;
+  closeTemplates();
+  autosize();
+  syncSend();
+  input.focus();
+  toast('Template "' + t.t + '" dimuat — sesuaikan lalu kirim.');
+}
+$('prompt-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeTemplates(); });
+
+initPersonaSelects();
+
+// ---------- Checkout Modal ----------
 const PRICE = 49000;
 const rupiah = n => 'Rp ' + n.toLocaleString('id-ID');
 const METHODS = [
@@ -887,7 +1077,8 @@ function detailHtml(m) {
 }
 
 function renderPay() {
-  const body = $('pay-body'), m = METHODS.find(x => x.id === pay.method);$('pay-back').classList.toggle('hidden', pay.step !== 'method' && pay.step !== 'pay');
+  const body = $('pay-body'), m = METHODS.find(x => x.id === pay.method);
+  $('pay-back').classList.toggle('hidden', pay.step !== 'method' && pay.step !== 'pay');
   if (pay.step === 'plan') {
     $('pay-title').textContent = 'Langganan NoeX Pro';
     body.innerHTML = `<div class="rounded-2xl bg-gradient-to-br from-cobalt to-cobalt-deep p-5 text-white">
@@ -954,14 +1145,3 @@ function payNow(e) {
 }
 
 $('pay-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closePay(); });
-
-// Inisialisasi awal saat aplikasi dimuat
-document.addEventListener('DOMContentLoaded', () => {
-  renderAll();
-  syncSend();
-
-  try {
-    const saved = JSON.parse(sessionStorage.getItem(SESSION_KEY));
-    if (saved && saved.name) enterApp(saved);
-  } catch (e) {}
-});
